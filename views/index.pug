@@ -1,0 +1,26 @@
+extends layout.pug 
+
+block content 
+    div(class="container-fluid d-flex flex-collumn align-item-center justify-content-center") 
+        h1 chapter form
+    div(class="d-flex flex-collumn align-item-center justify-content-center" style="height: 100px;")
+        
+        form(class="d-flex flex-column card w-50" style="height: 300px" method="post" action="/api/chapters")
+            div(class="card-body")
+                div(class="form-group")
+                    label Title 
+                    input(name="title" class='form-control' type="text")
+                div(class="form-group")
+                    label nbrOfLesson  
+                    input(name="nbrOfLessons" class='form-control' type="number")
+                div(class="form-group")
+                    input(name="active" class='form-checkbox-control' type="checkbox" id="active")
+                    label(class="form-chek-label" for="active") active 
+            div 
+                input(type="submit" value="Submit" class="btn btn-primary")
+            div 
+                if(locals.errors && errors && errors.length)
+                    ul
+                        each  val in errors
+                            li= val 
+                        
