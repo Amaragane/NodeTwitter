@@ -4,8 +4,8 @@ exports.getTweets = () => {
   return Tweet.find({}).exec();
 };
 
-exports.createTweet = (body) => {
-  const newTweet = new Tweet(body);
+exports.createTweet = (tweet) => {
+  const newTweet = new Tweet(tweet);
   return newTweet.save();
 };
 exports.deleteTweet = (tweetId) => {
