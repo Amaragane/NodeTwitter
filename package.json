@@ -2,7 +2,7 @@
   "name": "twitter",
   "version": "1.0.0",
   "description": "app like twitter",
-  "main": "index.js",
+  "main": "bin/www",
   "scripts": {
     "start": "set NODE_ENV=dev&& nodemon /bin/www",
     "start_prod": "set NODE_ENV=prod&& nodemon /bin/www ",
