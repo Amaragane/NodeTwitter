@@ -1,0 +1,9 @@
+if tweets 
+                each tweet in tweets 
+
+                    div(class="card tweet-element")
+                        div(class="card-text")= tweet.content
+                        div(class='card-body')
+                            
+                            button(class="btn btn-danger  float-end" tweetid=tweet._id) X
+                            button(class="btn btn-primary float-start" tweetid= tweet._id) Edit 
