@@ -11,7 +11,7 @@ const httpServer = http
     res.end();
   })
   .listen(80);
-const https = https
+https
   .createServer(
     {
       key: fs.readdirSync(env.key),
