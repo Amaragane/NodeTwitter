@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(routing);
 
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV === "dev") {
   app.use(errorHandler());
 } else {
   app.use((err, req, res, next) => {

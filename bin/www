@@ -14,8 +14,8 @@ const httpServer = http
 https
   .createServer(
     {
-      key: fs.readdirSync(env.key),
-      cert: fs.readdirSync(env.cert),
+      key: fs.readFileSync(env.key),
+      cert: fs.readFileSync(env.cert),
     },
     app
   )
