@@ -3,7 +3,8 @@ div(class="profile-container d-flex flex-column") profile
     form(class="d-flex flex-row justify-content-center align-items-center" id="form-avatar" action="/users/update/image" method="post" enctype="multipart/form-data" )
         
         img(src=currentUser.avatar  class="img-fluid" id="img-profile")
-        input(type="file" name="avatar" class="d-none" id='input-avatar')
+        if((editable && user._id.toString() === currentUser._id.toString()))
+            input(type="file" name="avatar" class="d-none" id='input-avatar')
     div(class="d-flex flex-row justify-content-center align-items-center my-3")
         p #{currentUser.userName} (#{currentUser.local.email})
     div(class="d-flex flex-row justify-content-center align-items-center text-center")
