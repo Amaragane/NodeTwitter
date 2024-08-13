@@ -3,6 +3,7 @@ const https = require("https");
 const http = require("http");
 const app = require("../app");
 const env = require(`../environment/${process.env.NODE_ENV}`);
+console.log(process.env.NODE_ENV);
 const httpServer = http
   .createServer((req, res) => {
     res.writeHead(301, {

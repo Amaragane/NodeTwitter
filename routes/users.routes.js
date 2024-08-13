@@ -4,9 +4,11 @@ const {
   signup,
   signupForm,
   updateImage,
-  userProfile
+  userProfile,
+  userList,
 } = require("../controllers/users.controller");
 
+router.get("/", userList);
 router.get("/:username", userProfile);
 router.get("/signup/form", signupForm);
 router.post("/signup", signup);
