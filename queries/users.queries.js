@@ -25,8 +25,12 @@ exports.findUserPerUsername = (username) => {
   console.log(username);
   return User.findOne({ userName: username }).exec();
 };
-exports.searchUsersByUsername = (search) => {
-  const regExp = "^" + search;
+exports.searchUsersPerUsername = (search) => {
+  const esc = escapeRegExp(search);
+  const regExp = `^${esc}`;
   const reg = new RegExp(regExp);
-  return User.find({ username: { $regExp } }).exec();
+  return User.find({ userName: { $regex: reg } }).exec();
 };
+function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[]\]/g, "$&");
+}
