@@ -2,6 +2,9 @@ const {
   createUser,
   findUserPerUsername,
   searchUsersPerUsername,
+  addToCurrentUserFollowing,
+  findUserPerId,
+  removeToCurrentUserFollowing,
 } = require("../queries/users.queries");
 const multer = require("multer");
 const path = require("path");
@@ -76,6 +79,31 @@ exports.userProfile = async (req, res, next) => {
       user,
       editable: false,
     });
+  } catch (error) {
+    next(error);
+  }
+};
+exports.userFollow = async (req, res, next) => {
+  try {
+    const userId = req.params.userId;
+    const [, user] = await Promise.all([
+      addToCurrentUserFollowing(req.user, userId),
+      findUserPerId(userId),
+    ]);
+
+    res.redirect("/users/" + user.userName);
+  } catch (error) {
+    next(error);
+  }
+};
+exports.userUnfollow = async (req, res, next) => {
+  try {
+    const userId = req.params.userId;
+    const [, user] = await Promise.all([
+      removeToCurrentUserFollowing(req.user, userId),
+      findUserPerId(userId),
+    ]);
+    res.redirect("/users/" + user.userName);
   } catch (error) {
     next(error);
   }

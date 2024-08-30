@@ -34,3 +34,13 @@ exports.searchUsersPerUsername = (search) => {
 function escapeRegExp(string) {
   return string.replace(/[.*+?^${}()|[]\]/g, "$&");
 }
+exports.addToCurrentUserFollowing = (currentUser, userId) => {
+  currentUser.following = [...currentUser.following, userId];
+  return currentUser.save();
+};
+exports.removeToCurrentUserFollowing = (currentUser, userId) => {
+  currentUser.following = currentUser.following.filter(
+    (objId) => objId.toString() !== userId
+  );
+  return currentUser.save();
+};

@@ -6,9 +6,13 @@ const {
   updateImage,
   userProfile,
   userList,
+  userFollow,
+  userUnfollow,
 } = require("../controllers/users.controller");
 
 router.get("/", userList);
+router.get("/follow/:userId", userFollow);
+router.get("/unfollow/:userId", userUnfollow);
 router.get("/:username", userProfile);
 router.get("/signup/form", signupForm);
 router.post("/signup", signup);

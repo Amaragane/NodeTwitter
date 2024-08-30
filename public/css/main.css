@@ -60,3 +60,17 @@ body {
   background: #eee;
   transition: background 0.2s;
 }
+.btn-follow {
+  color: #007bff !important;
+  border-radius: 30px;
+  font-weight: bold;
+  background: #363434;
+  cursor: pointer;
+}
+.btn-unfollow {
+  color: #007bff !important;
+  border-radius: 30px;
+  font-weight: bold;
+  background: #363434;
+  cursor: pointer;
+}
